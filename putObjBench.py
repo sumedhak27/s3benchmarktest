@@ -81,9 +81,9 @@ def worker(worker_num):
         for iteration in range(1, NUM_ITER_PER_WORKER+1):
             bucket_name = f"{bucket_prefix}-{iteration}"
             cmd = (f"{pwd}/s3bench -accessKey={ACCESS_KEY} -accessSecret={SECRET_KEY}"
-                        f" -bucket={bucket_name} -endpoint={ENDPOINT} -numClients=1"
-                        f" -numSamples={NUM_SAMPLE_PER_ITER} -objectSize={OBJ_SIZE}"
-                        f" --region=default -o={dir_path}/report -t=json")
+                   f" -bucket={bucket_name} -endpoint={ENDPOINT} -numClients=1"
+                   f" -numSamples={NUM_SAMPLE_PER_ITER} -objectSize={OBJ_SIZE}"
+                   f" --region=default -o={dir_path}/report -t=json")
             print("Executing the Command: ", cmd, "\n")
             s3bench_cmd = subprocess.Popen(shlex.split(cmd), stdout=subprocess.PIPE,
                                                                          stderr=subprocess.PIPE)
